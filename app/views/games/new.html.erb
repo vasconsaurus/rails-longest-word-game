@@ -10,8 +10,12 @@
 <form action="<%= score_path %>" method="POST">
   <input type="text"
          name="word"
-         value="<%= params[:word] %>"
          placeholder="Type your word!">
   <input type="submit" value="Done!">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <% @letters.each do |letter| %>
+    <input type="hidden" name="letters[]" value="<%= letter %>" >
+  <% end %>
+
 </form>
