@@ -1,1 +1,9 @@
 <h1>Score</h1>
+
+<% if @word_exists%>
+<p> You win! </p>
+<% else %>
+<p> You lose! </p>
+<% end %>
+
+<div class="play_again"><%= link_to "Play again?", new_path %></div>

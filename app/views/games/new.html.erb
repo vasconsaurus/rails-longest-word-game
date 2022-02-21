@@ -1,10 +1,17 @@
 <h1>New Game</h1>
 
-<% def random_chars(number) %>
-  <% charset = Array('a'..'z') %>
-  <% Array.new(number) { charset.sample }.join %>
-<% end %>
+<div class="letters">
+  <% @letters.each do |letter| %>
+    <h3><%= letter %></h3>
+  <% end %>
+</div>
 
-<%= random_chars(20) %>
-
-<%= Array.new(20) { ('a'..'z').to_a.sample }.join %>
+<p>Type the longest word you can find with these letters</p>
+<form action="<%= score_path %>" method="POST">
+  <input type="text"
+         name="word"
+         value="<%= params[:word] %>"
+         placeholder="Type your word!">
+  <input type="submit" value="Done!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
