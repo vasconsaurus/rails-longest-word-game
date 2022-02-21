@@ -1,0 +1,10 @@
+<h1>New Game</h1>
+
+<% def random_chars(number) %>
+  <% charset = Array('a'..'z') %>
+  <% Array.new(number) { charset.sample }.join %>
+<% end %>
+
+<%= random_chars(20) %>
+
+<%= Array.new(20) { ('a'..'z').to_a.sample }.join %>
